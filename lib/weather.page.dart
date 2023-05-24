@@ -5,8 +5,8 @@ import 'package:flutter_api/weather.dart';
 import 'package:flutter_api/weather.service.dart';
 import 'package:http/http.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class WeatherPage extends StatelessWidget {
+  const WeatherPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

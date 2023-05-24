@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_api/note.card.dart';
 import 'package:flutter_api/note.edit.dart';
 import 'package:flutter_api/note.read.dart';
+import 'package:flutter_api/weather.page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.grey.shade800),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(Icons.notes),
             SizedBox(width: 10),
@@ -48,16 +49,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WeatherPage()),
+              );
+            },
+            icon: Icon(Icons.cloud),
+          ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(' Your Memo',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
-          SizedBox(
-            height: 20.0,
-          ),
           Expanded(
             child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
               stream:
